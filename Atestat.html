@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffdee9;
+      background-image:
+        radial-gradient(circle, rgba(255,182,193,0.6) 20%, transparent 20%),
+        radial-gradient(circle, rgba(255,105,180,0.6) 20%, transparent 20%);
+      background-size: 100px 100px;
+      background-position: 0 0, 50px 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background-color: #ccc;
+    }
+
+    .image {
+      font-size: 80px;
+      margin-top: 20px;
+    }
+
+    .name {
+      font-size: 22px;
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="card">
+  <div class="name">Maria bubi 💕</div>
+  <h1>Will you be my Valentine? 💘</h1>
+  <div class="buttons">
+    <button class="yes" onclick="yesClicked()">Yes 💖</button>
+    <button class="no" onclick="noClicked()">No 💔</button>
+  </div>
+</div>
+
+<script>
+  let stage = 0;
+
+  function noClicked() {
+    document.getElementById("card").innerHTML = `
+      <h1>That made me sad, Maria bubi... 😢</h1>
+      <div class="image">😭</div>
+    `;
+  }
+
+  function yesClicked() {
+    if (stage === 0) {
+      stage = 1;
+      document.getElementById("card").innerHTML = `
+        <h1>Maria bubi, are you REALLY sure? 💕</h1>
+        <div class="buttons">
+          <button class="yes" onclick="yesClicked()">Yes 💖</button>
+          <button class="no" onclick="sureClicked()">Are you sure? 🤔</button>
+        </div>
+      `;
+    } else {
+      finalLove();
+    }
+  }
+
+  function sureClicked() {
+    finalLove();
+  }
+
+  function finalLove() {
+    document.getElementById("card").innerHTML = `
+      <h1>I love you, Maria bubi! ❤️</h1>
+      <div class="image">🧸💖</div>
+      <p>Happy Valentine’s Day 💘</p>
+    `;
+  }
+</script>
+
+</body>
+</html>
